@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Omar Salah — SEO Specialist & Founder of aiseoa. 7+ years helping businesses worldwide rank on Google."/>
+  <title>About — Omar Salah | aiseoa SEO</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    /* HERO */
+    .about-hero { padding: 5rem 2.5rem 3rem; max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.6fr; gap: 3rem; align-items: center; }
+    .avatar-wrap { position: relative; }
+    .avatar-box { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, rgba(37,99,235,.25), rgba(56,189,248,.15)); border: 1px solid var(--border); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 6rem; }
+    .avatar-tag { position: absolute; bottom: -12px; right: -12px; background: var(--accent); color: #fff; border-radius: 10px; padding: .5rem 1rem; font-size: .8rem; font-weight: 700; }
+    .about-intro h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: -1.5px; margin-bottom: .3rem; }
+    .about-intro .role { color: var(--accent2); font-weight: 600; font-size: 1rem; margin-bottom: 1rem; }
+    .about-intro p { color: var(--muted); font-size: .95rem; line-height: 1.75; margin-bottom: 1rem; }
+    .about-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+    .tag { background: rgba(37,99,235,.12); border: 1px solid rgba(37,99,235,.3); color: var(--accent2); font-size: .75rem; font-weight: 600; padding: .3rem .8rem; border-radius: 999px; }
+    .about-btns { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.2rem; }
+
+    /* STATS ROW */
+    .about-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin: 0 2.5rem 3rem; max-width: 960px; margin-left: auto; margin-right: auto; }
+    .astat { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.2rem; text-align: center; }
+    .astat-num { font-family:'Space Grotesk',sans-serif; font-size: 2rem; font-weight: 700; color: var(--accent2); }
+    .astat-label { font-size: .75rem; color: var(--muted); margin-top: .2rem; }
+
+    /* VALUES */
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1rem; }
+    .value-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.3rem; }
+    .value-icon { font-size: 1.5rem; margin-bottom: .6rem; }
+    .value-title { font-family:'Space Grotesk',sans-serif; font-weight: 600; font-size: .95rem; margin-bottom: .3rem; }
+    .value-desc { color: var(--muted); font-size: .82rem; line-height: 1.55; }
+
+    /* EXPERIENCE TIMELINE */
+    .timeline { display: flex; flex-direction: column; gap: 0; position: relative; padding-left: 2rem; }
+    .timeline::before { content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background:linear-gradient(to bottom,var(--accent),var(--accent2),transparent); }
+    .t-item { padding: 0 0 2rem 1.5rem; position: relative; }
+    .t-dot { position: absolute; left: -2.4rem; top: 4px; width: 12px; height: 12px; background: var(--accent2); border-radius: 50%; border: 2px solid var(--navy); }
+    .t-year { font-size: .75rem; font-weight: 700; color: var(--accent2); text-transform: uppercase; letter-spacing: 1px; margin-bottom: .2rem; }
+    .t-role { font-family:'Space Grotesk',sans-serif; font-weight: 600; font-size: 1rem; margin-bottom: .2rem; }
+    .t-place { color: var(--muted); font-size: .82rem; margin-bottom: .4rem; }
+    .t-desc { color: var(--muted); font-size: .83rem; line-height: 1.6; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .skill-item { margin-bottom: .8rem; }
+    .skill-top { display: flex; justify-content: space-between; margin-bottom: .35rem; font-size: .85rem; font-weight: 500; }
+    .skill-top span:last-child { color: var(--accent2); }
+    .skill-bar { height: 6px; background: rgba(255,255,255,.06); border-radius: 999px; overflow: hidden; }
+    .skill-fill { height: 100%; background: linear-gradient(90deg,var(--accent),var(--accent2)); border-radius: 999px; width: 0%; transition: width 1.2s ease; }
+
+    /* CERTIFICATIONS */
+    .certs-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1rem; }
+    .cert { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem; display: flex; gap: .8rem; align-items: center; }
+    .cert-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .cert-name { font-size: .85rem; font-weight: 600; }
+    .cert-issuer { font-size: .75rem; color: var(--muted); margin-top: 2px; }
+
+    /* CLIENTS MAP */
+    .regions { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .region { display: flex; align-items: center; gap: .5rem; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: .5rem .9rem; font-size: .83rem; }
+    .region-flag { font-size: 1rem; }
+
+    @media(max-width:768px){
+      .about-hero { grid-template-columns: 1fr; }
+      .avatar-box { max-width: 220px; margin: 0 auto; }
+      .about-stats { grid-template-columns: repeat(2,1fr); }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<script src="js/components.js"></script>
+<script>injectNav('about');</script>
+
+<!-- ABOUT HERO -->
+<div class="about-hero fade-in">
+  <div class="avatar-wrap">
+    <div class="avatar-box">👨‍💻</div>
+    <div class="avatar-tag">⭐ SEO Specialist</div>
+  </div>
+  <div class="about-intro">
+    <div class="badge"><span class="badge-dot"></span> Open to New Projects</div>
+    <h1 id="about-h1">Omar Salah</h1>
+    <div class="role" id="about-role">SEO Specialist & Founder of aiseoa</div>
+    <p id="about-p1">I'm a passionate SEO specialist with 7+ years of experience helping businesses across Europe, Australia, the UK, the Arab world and beyond achieve sustainable growth through search engine optimization.</p>
+    <p id="about-p2">I founded aiseoa with a single mission: to make world-class SEO accessible to businesses of all sizes — combining technical expertise, data-driven strategies, and cutting-edge AI tools to deliver results that actually move the needle.</p>
+    <div class="about-tags">
+      <span class="tag">Technical SEO</span>
+      <span class="tag">Link Building</span>
+      <span class="tag">Content Strategy</span>
+      <span class="tag">AI & SEO</span>
+      <span class="tag">International SEO</span>
+      <span class="tag">Local SEO</span>
+    </div>
+    <div class="about-btns">
+      <a class="btn-primary" href="index.html#booking">Work With Me</a>
+      <a class="btn-outline" href="portfolio.html">View My Work</a>
+    </div>
+  </div>
+</div>
+
+<!-- MICRO STATS -->
+<div class="about-stats fade-in">
+  <div class="astat"><div class="astat-num">7+</div><div class="astat-label">Years Experience</div></div>
+  <div class="astat"><div class="astat-num">47+</div><div class="astat-label">Clients Worldwide</div></div>
+  <div class="astat"><div class="astat-num">12+</div><div class="astat-label">Countries Served</div></div>
+  <div class="astat"><div class="astat-num">850+</div><div class="astat-label">Keywords Ranked</div></div>
+</div>
+
+<!-- VALUES -->
+<section class="section fade-in">
+  <div class="section-tag">My Approach</div>
+  <div class="section-title">What I Stand For</div>
+  <div class="section-sub">My work is built on four core principles that guide every project and every client relationship.</div>
+  <div class="values-grid">
+    <div class="value-card"><div class="value-icon">🎯</div><div class="value-title">Results First</div><div class="value-desc">No vanity metrics. Every strategy is tied to real business outcomes — traffic, leads, and revenue.</div></div>
+    <div class="value-card"><div class="value-icon">🔬</div><div class="value-title">Data-Driven</div><div class="value-desc">Every decision is backed by data. I use advanced analytics and AI tools to make informed, precise moves.</div></div>
+    <div class="value-card"><div class="value-icon">🤝</div><div class="value-title">Full Transparency</div><div class="value-desc">No black boxes. You get clear monthly reports showing exactly what was done and what results it drove.</div></div>
+    <div class="value-card"><div class="value-icon">🚀</div><div class="value-title">Long-Term Growth</div><div class="value-desc">I build SEO foundations that compound over time — not quick hacks that disappear with the next update.</div></div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="stripe fade-in">
+  <div class="section">
+    <div class="section-tag">Experience</div>
+    <div class="section-title">My Journey</div>
+    <div class="section-sub">Seven years of learning, building, and scaling SEO for businesses across the globe.</div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-year">2024 – Present</div>
+        <div class="t-role">Founder & Lead SEO Specialist — aiseoa</div>
+        <div class="t-place">Remote · Worldwide</div>
+        <div class="t-desc">Launched aiseoa to provide elite SEO services to international clients. Integrated AI-powered tools into SEO workflows to deliver faster, more scalable results for clients in Europe, Australia, UK & MENA.</div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-year">2021 – 2024</div>
+        <div class="t-role">Senior SEO Consultant</div>
+        <div class="t-place">Multiple International Agencies · Remote</div>
+        <div class="t-desc">Led SEO campaigns for e-commerce brands, SaaS companies and B2B firms across Germany, UK, Australia and the UAE. Managed portfolios of 15+ clients simultaneously with consistent page-1 results.</div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-year">2019 – 2021</div>
+        <div class="t-role">SEO Specialist & Content Strategist</div>
+        <div class="t-place">Digital Marketing Agency</div>
+        <div class="t-desc">Specialized in technical SEO, keyword research and content strategy. Grew client organic traffic by an average of 240% over 18 months. Developed link building systems still in use today.</div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-year">2017 – 2019</div>
+        <div class="t-role">Junior SEO Analyst</div>
+        <div class="t-place">First Role in Digital Marketing</div>
+        <div class="t-desc">Started with on-page SEO, Google Analytics and basic link building. Quickly grew into handling full audits and strategy development independently.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section fade-in" id="skills">
+  <div class="section-tag">Skills</div>
+  <div class="section-title">My Technical Toolkit</div>
+  <div class="section-sub">A blend of technical expertise, creative strategy, and cutting-edge AI proficiency.</div>
+  <div class="skills-grid">
+    <div>
+      <div class="skill-item"><div class="skill-top"><span>Technical SEO</span><span>98%</span></div><div class="skill-bar"><div class="skill-fill" data-width="98"></div></div></div>
+      <div class="skill-item"><div class="skill-top"><span>Link Building</span><span>92%</span></div><div class="skill-bar"><div class="skill-fill" data-width="92"></div></div></div>
+      <div class="skill-item"><div class="skill-top"><span>Keyword Research</span><span>96%</span></div><div class="skill-bar"><div class="skill-fill" data-width="96"></div></div></div>
+      <div class="skill-item"><div class="skill-top"><span>Content Strategy</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+    </div>
+    <div>
+      <div class="skill-item"><div class="skill-top"><span>AI & Automation</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
+      <div class="skill-item"><div class="skill-top"><span>International SEO</span><span>94%</span></div><div class="skill-bar"><div class="skill-fill" data-width="94"></div></div></div>
+      <div class="skill-item"><div class="skill-top"><span>Google Analytics / GSC</span><span>97%</span></div><div class="skill-bar"><div class="skill-fill" data-width="97"></div></div></div>
+      <div class="skill-item"><div class="skill-top"><span>Local SEO</span><span>93%</span></div><div class="skill-bar"><div class="skill-fill" data-width="93"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="stripe fade-in">
+  <div class="section">
+    <div class="section-tag">Certifications</div>
+    <div class="section-title">Credentials</div>
+    <div class="certs-grid">
+      <div class="cert"><span class="cert-icon">🏆</span><div><div class="cert-name">Google Analytics Certified</div><div class="cert-issuer">Google</div></div></div>
+      <div class="cert"><span class="cert-icon">🔍</span><div><div class="cert-name">Google Search Ads Certified</div><div class="cert-issuer">Google</div></div></div>
+      <div class="cert"><span class="cert-icon">📊</span><div><div class="cert-name">HubSpot SEO Certification</div><div class="cert-issuer">HubSpot Academy</div></div></div>
+      <div class="cert"><span class="cert-icon">🔗</span><div><div class="cert-name">Ahrefs SEO Professional</div><div class="cert-issuer">Ahrefs Academy</div></div></div>
+      <div class="cert"><span class="cert-icon">🤖</span><div><div class="cert-name">AI for Marketing</div><div class="cert-issuer">Coursera / DeepLearning.AI</div></div></div>
+      <div class="cert"><span class="cert-icon">🌍</span><div><div class="cert-name">International SEO Expert</div><div class="cert-issuer">SEMrush Academy</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS REGIONS -->
+<section class="section fade-in">
+  <div class="section-tag">Global Reach</div>
+  <div class="section-title">Clients from Around the World</div>
+  <div class="section-sub">I've worked with clients from 12+ countries across 4 continents.</div>
+  <div class="regions">
+    <div class="region"><span class="region-flag">🇬🇧</span> United Kingdom</div>
+    <div class="region"><span class="region-flag">🇩🇪</span> Germany</div>
+    <div class="region"><span class="region-flag">🇦🇺</span> Australia</div>
+    <div class="region"><span class="region-flag">🇫🇷</span> France</div>
+    <div class="region"><span class="region-flag">🇳🇱</span> Netherlands</div>
+    <div class="region"><span class="region-flag">🇸🇦</span> Saudi Arabia</div>
+    <div class="region"><span class="region-flag">🇦🇪</span> UAE</div>
+    <div class="region"><span class="region-flag">🇪🇬</span> Egypt</div>
+    <div class="region"><span class="region-flag">🇨🇦</span> Canada</div>
+    <div class="region"><span class="region-flag">🇸🇪</span> Sweden</div>
+    <div class="region"><span class="region-flag">🇳🇿</span> New Zealand</div>
+    <div class="region"><span class="region-flag">🇺🇸</span> United States</div>
+  </div>
+  <div style="margin-top:2.5rem;text-align:center">
+    <a class="btn-primary" href="index.html#booking">Start Working Together →</a>
+  </div>
+</section>
+
+<script src="js/aiseoa.js"></script>
+<script>
+injectFooter();
+// Animate skill bars on scroll
+const skillObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.skill-fill').forEach(bar=>{
+        bar.style.width = bar.dataset.width + '%';
+      });
+    }
+  });
+},{threshold:0.3});
+const skillsSection = document.getElementById('skills');
+if(skillsSection) skillObs.observe(skillsSection);
+
+function applyPageTranslations(lang){
+  if(lang==='ar'){
+    document.getElementById('about-h1').textContent='عمر صلاح';
+    document.getElementById('about-role').textContent='متخصص SEO ومؤسس aiseoa';
+    document.getElementById('about-p1').textContent='متخصص SEO شغوف بخبرة تزيد على 7 سنوات في مساعدة الشركات في أوروبا وأستراليا والمملكة المتحدة والعالم العربي على تحقيق نمو مستدام عبر محركات البحث.';
+    document.getElementById('about-p2').textContent='أسست aiseoa بمهمة واحدة: جعل السيو الاحترافي في متناول جميع الشركات — بدمج الخبرة التقنية والاستراتيجيات المبنية على البيانات وأدوات الذكاء الاصطناعي.';
+  } else {
+    document.getElementById('about-h1').textContent='Omar Salah';
+    document.getElementById('about-role').textContent='SEO Specialist & Founder of aiseoa';
+    document.getElementById('about-p1').textContent='I\'m a passionate SEO specialist with 7+ years of experience helping businesses across Europe, Australia, the UK, the Arab world and beyond achieve sustainable growth through search engine optimization.';
+    document.getElementById('about-p2').textContent='I founded aiseoa with a single mission: to make world-class SEO accessible to businesses of all sizes — combining technical expertise, data-driven strategies, and cutting-edge AI tools to deliver results that actually move the needle.';
+  }
+}
+</script>
+</body>
+</html>
